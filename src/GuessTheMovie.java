@@ -41,11 +41,12 @@ public class GuessTheMovie {
 
           for (int i = 0; i < hiddenMovieName.length(); i++) {
              if(movieName.charAt(i) == guess.charAt(0)) {
-                 guessingMovieName.append(guess);
+                 guessingMovieName.setCharAt(i, guess.charAt(0));
              }
 
 
           }
+            System.out.println(guessingMovieName);
 
         }
 
