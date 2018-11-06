@@ -37,9 +37,16 @@ public class GuessTheMovie {
         String guess = in.nextLine();
 
 
-        if (shownMovieName.contains(guess)) { //TODO: write logic to replace _ with actual letter
-            System.out.println();
+        if (shownMovieName.contains(guess)) {
+
+          for (int i = 0; i > hiddenMovieName.length(); i++) {
+              shownMovieName.indexOf(guess);
+          }
+
         }
+
+
+
 
         System.out.println();
 
