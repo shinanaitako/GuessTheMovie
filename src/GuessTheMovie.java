@@ -5,14 +5,14 @@ import java.util.Scanner;
 
 public class GuessTheMovie {
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
 
-            File file = new File("movies.txt");
-            Scanner scanner = new Scanner(file);
+        File file = new File("movies.txt");
+        Scanner scanner = new Scanner(file);
         List<String> listofMovies = new ArrayList<String>();
 
 
-        while(scanner.hasNextLine()) {
+        while (scanner.hasNextLine()) {
             String line = scanner.nextLine();
             listofMovies.add(line);
 
@@ -25,54 +25,40 @@ public class GuessTheMovie {
         String hiddenMovieName = movieName.replaceAll("[a-zA-Z]", "_");
 
 
-
         System.out.println("You are guessing: " + hiddenMovieName);
         System.out.println(movieName);
 
-        System.out.print("Guess a letter: ");
+
         Scanner in = new Scanner(System.in);
-        String guess = in.nextLine();
 
         StringBuilder guessingMovieName = new StringBuilder(hiddenMovieName);
 
         boolean guessed = false;
 
 
-while(!guessed) {
-    if (movieName.contains(guess)) {
+        while (!guessed) {
+            System.out.print("Guess a letter: ");
+            String guess = in.nextLine();
+            if (movieName.contains(guess)) {
 
-        for (int i = 0; i < hiddenMovieName.length(); i++) {
-            if (movieName.charAt(i) == guess.charAt(0)) {
-                guessingMovieName.setCharAt(i, guess.charAt(0));
+                for (int i = 0; i < hiddenMovieName.length(); i++) {
+                    if (movieName.charAt(i) == guess.charAt(0)) {
+                        guessingMovieName.setCharAt(i, guess.charAt(0));
+                    }
+
+                }
+                System.out.println(guessingMovieName);
+                if (guessingMovieName.toString().equals(movieName)) {
+                    guessed = true;
+                    System.out.println("You win!");
+                }
+
+
             }
-
-
         }
-        System.out.println(guessingMovieName);
-        if(guessingMovieName.toString().equals(movieName)) {
-            guessed = true;
-        }
-
-
-    }
-}
-
-
 
 
         System.out.println();
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     }
