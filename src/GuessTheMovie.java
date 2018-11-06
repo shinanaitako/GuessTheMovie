@@ -31,24 +31,31 @@ public class GuessTheMovie {
 
         System.out.print("Guess a letter: ");
         Scanner in = new Scanner(System.in);
-        String guess = in.next();
+        String guess = in.nextLine();
 
         StringBuilder guessingMovieName = new StringBuilder(hiddenMovieName);
 
+        boolean guessed = false;
 
 
-        if (movieName.contains(guess)) {
+while(!guessed) {
+    if (movieName.contains(guess)) {
 
-          for (int i = 0; i < hiddenMovieName.length(); i++) {
-             if(movieName.charAt(i) == guess.charAt(0)) {
-                 guessingMovieName.setCharAt(i, guess.charAt(0));
-             }
+        for (int i = 0; i < hiddenMovieName.length(); i++) {
+            if (movieName.charAt(i) == guess.charAt(0)) {
+                guessingMovieName.setCharAt(i, guess.charAt(0));
+            }
 
-
-          }
-            System.out.println(guessingMovieName);
 
         }
+        System.out.println(guessingMovieName);
+        if(guessingMovieName.toString().equals(movieName)) {
+            guessed = true;
+        }
+
+
+    }
+}
 
 
 
