@@ -19,28 +19,32 @@ public class GuessTheMovie {
         }
 
         int randomMovie = (int) (Math.random() * listofMovies.size()) + 1;
-        String shownMovieName = listofMovies.get(randomMovie);
+        String movieName = listofMovies.get(randomMovie);
 
 
-        String hiddenMovieName = shownMovieName.replaceAll("[a-zA-Z]", "_ ");
+        String hiddenMovieName = movieName.replaceAll("[a-zA-Z]", "_");
 
 
-     //   for (int i = 0; i < listofMovies.get(randomMovie).length(); i++) {
-            // Character eachCharOfMovie = listofMovies.get(randomMovie).charAt(i);
 
-   //     }
         System.out.println("You are guessing: " + hiddenMovieName);
-        System.out.println(shownMovieName);
+        System.out.println(movieName);
 
         System.out.print("Guess a letter: ");
         Scanner in = new Scanner(System.in);
-        String guess = in.nextLine();
+        String guess = in.next();
+
+        StringBuilder guessingMovieName = new StringBuilder(hiddenMovieName);
 
 
-        if (shownMovieName.contains(guess)) {
 
-          for (int i = 0; i > hiddenMovieName.length(); i++) {
-              shownMovieName.indexOf(guess);
+        if (movieName.contains(guess)) {
+
+          for (int i = 0; i < hiddenMovieName.length(); i++) {
+             if(movieName.charAt(i) == guess.charAt(0)) {
+                 guessingMovieName.append(guess);
+             }
+
+
           }
 
         }
